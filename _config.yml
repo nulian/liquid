@@ -8,3 +8,4 @@ collections:
 exclude:
   - README.md
   - CNAME
+keep_files: ['css']
