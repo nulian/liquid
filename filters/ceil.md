@@ -1,5 +1,6 @@
 ---
 title: ceil
+layout: default
 ---
 
 `ceil` rounds the input up to the nearest whole number.

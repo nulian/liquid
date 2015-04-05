@@ -20,7 +20,7 @@ require('load-grunt-tasks')(grunt);
       },
 
       jekyll: {
-        files: ['index.html'],
+        files: ['index.html', '_includes/*.html', 'filters/*.*',  '_layouts/*.*', '_posts/*.*'],
         tasks: ['shell:jekyllBuild']
       }
 
