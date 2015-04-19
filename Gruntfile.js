@@ -10,11 +10,9 @@ require('load-grunt-tasks')(grunt);
 
     watch: {
       css: {
-        files: ['_sass/*.scss'],
+        files: ['_sass/**/*.scss'],
         tasks: ['sass', 'postcss', 'shell:jekyllBuild'],
         options: {
-          spawn: false,
-          interrupt: true,
           atBegin: true
         }
       },

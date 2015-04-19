@@ -3,19 +3,22 @@
 
   {% include head.html %}
   {% assign current_page = page %}
+  <!-- Add sections in section array -->
+  {% assign sections = "filters, objects, tags" | remove: " " | split: "," %}
 
   <body>
     <div class="sidebar">
       <h1 class="sidebar--logo"><a href="/">Liquid</a></h1>
       <nav class="sidebar--nav">
 
+      {% for section in sections %}
         <ul>
           <li>
-            <a href="/filters">Filters</a>
-            {% if current_page.url contains "filters" %}
+            <a href="/{{ section }}">{{ section | capitalize }}</a>
+            {% if current_page.url contains section %}
               <ul>
                 {% for page in site.pages %}
-                  {% if page.url contains "filters" %}
+                  {% if page.url contains section %}
                     <li>
                       <a href="{{ page.url}}">{{ page.title }}</a>
                     </li>
@@ -25,40 +28,8 @@
             {% endif %}
           </li>
         </ul>
+        {% endfor %}
 
-        <ul>
-          <li>
-            <a href="/objects">Objects</a>
-            {% if current_page.url contains "objects" %}
-              <ul>
-                {% for page in site.pages %}
-                  {% if page.url contains "objects" %}
-                    <li>
-                      <a href="{{ page.url}}">{{ page.title }}</a>
-                    </li>
-                  {% endif %}
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </li>
-        </ul>
-
-        <ul>
-          <li>
-            <a href="/tags">Tags</a>
-            {% if current_page.url contains "tags" %}
-              <ul>
-                {% for page in site.pages %}
-                  {% if page.url contains "tags" %}
-                    <li>
-                      <a href="{{ page.url}}">{{ page.title }}</a>
-                    </li>
-                  {% endif %}
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </li>
-        </ul>
 
         <li><a href="https://github.com/Shopify/liquid">Source on GitHub</a></li>
       </nav>

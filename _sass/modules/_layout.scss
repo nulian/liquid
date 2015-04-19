@@ -1,13 +1,20 @@
 
-$sidebar-width: 250px;
-$content-width: 900px;
+$sidebar-width: 225px;
+$wrapper-width: 900px;
+
+/*============================================================================
+  Content Area
+ ==============================================================================*/
+
+.content {
+  padding: $spacing-unit $spacing-unit $spacing-unit ($spacing-unit + $sidebar-width);
+  width: 100%;
+}
 
 .wrapper {
-  max-width: $content-width;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: $spacing-unit;
-  padding-left: $spacing-unit;
+  max-width: $wrapper-width;
+  margin: 0 auto;
+  padding: 0 $spacing-unit;
   @extend %clearfix;
 }
 
@@ -17,7 +24,6 @@ $content-width: 900px;
 
 .sidebar {
   background: $color-blue-5;
-  //flex: 0 0 250px;
   width: $sidebar-width;
   height: 100vh;
   position: fixed;
@@ -68,5 +74,4 @@ $content-width: 900px;
       color: $color-white;
     }
   }
-
 }
