@@ -2,30 +2,71 @@
 <html>
 
   {% include head.html %}
+  {% assign current_page = page %}
 
   <body>
     <div class="sidebar">
       <h1 class="sidebar--logo"><a href="/">Liquid</a></h1>
       <nav class="sidebar--nav">
+
         <ul>
-          {% for collection in site.collections %}
-          <li><a href="{{ collection[0] | prepend: "/" | prepend: site.baseurl | append: "/" }}">{{ collection[0] | capitalize }}</a>
-            <ul>
-              {% for doc in collection[1].docs %}
-              <li><a href="{{ "/filters/" | append: "#" | append: doc.title | prepend: site.baseurl }}">{{ doc.title }}</a></li>
-              {% endfor %}
-            </ul>
+          <li>
+            <a href="/filters">Filters</a>
+            {% if current_page.url contains "filters" %}
+              <ul>
+                {% for page in site.pages %}
+                  {% if page.url contains "filters" %}
+                    <li>
+                      <a href="{{ page.url}}">{{ page.title }}</a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% endif %}
           </li>
-          {% endfor %}
-          <li><a href="https://github.com/Shopify/liquid">Source on GitHub</a></li>
-          <li><a href="#">Nav Item 3</a></li>
-          <li><a href="#">Nav Item 4</a></li>
         </ul>
+
+        <ul>
+          <li>
+            <a href="/objects">Objects</a>
+            {% if current_page.url contains "objects" %}
+              <ul>
+                {% for page in site.pages %}
+                  {% if page.url contains "objects" %}
+                    <li>
+                      <a href="{{ page.url}}">{{ page.title }}</a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        </ul>
+
+        <ul>
+          <li>
+            <a href="/tags">Tags</a>
+            {% if current_page.url contains "tags" %}
+              <ul>
+                {% for page in site.pages %}
+                  {% if page.url contains "tags" %}
+                    <li>
+                      <a href="{{ page.url}}">{{ page.title }}</a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        </ul>
+
+        <li><a href="https://github.com/Shopify/liquid">Source on GitHub</a></li>
       </nav>
     </div>
     <div class="content">
       <div class="wrapper">
-        {{ content }}
+          <h1>{{ current_page.title }}</h1>
+          {{ content }}
       </div>
     </div>
   </body>

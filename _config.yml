@@ -10,3 +10,7 @@ exclude:
   - CNAME
   - node_modules
 keep_files: ['css']
+defaults:
+  -
+    values:
+      layout: "default"
