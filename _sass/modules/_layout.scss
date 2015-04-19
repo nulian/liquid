@@ -1,0 +1,72 @@
+
+$sidebar-width: 250px;
+$content-width: 900px;
+
+.wrapper {
+  max-width: $content-width;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $spacing-unit;
+  padding-left: $spacing-unit;
+  @extend %clearfix;
+}
+
+/*============================================================================
+  Sidebar
+ ==============================================================================*/
+
+.sidebar {
+  background: $color-blue-5;
+  //flex: 0 0 250px;
+  width: $sidebar-width;
+  height: 100vh;
+  position: fixed;
+  overflow: scroll;
+}
+
+.sidebar--logo {
+  font-size: $base-font-size * 2;
+  font-weight: bold;
+  text-align: center;
+  padding: $spacing-unit;
+  border-bottom: 1px solid $color-blue-4;
+
+  a {
+    color: $color-white;
+  }
+}
+
+.sidebar--nav {
+  padding: $spacing-unit/2 $spacing-unit;
+  font-weight: bold;
+
+  //First Level Links
+  > ul {
+    margin: 0;
+
+    > li {
+      margin-bottom: $spacing-unit / 2;
+    }
+
+    // Second Level Links
+    ul {
+      margin-left: $spacing-unit/2;
+      font-weight: normal;
+      font-size: 0.9em;
+
+      li {
+        margin-top: $spacing-unit/4;
+      }
+    }
+  }
+
+  // Styles for both First and Second Level Links
+  li {
+    list-style: none;
+
+    a {
+      color: $color-white;
+    }
+  }
+
+}
