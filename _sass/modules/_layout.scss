@@ -1,6 +1,6 @@
 
 $sidebar-width: 225px;
-$wrapper-width: 900px;
+$wrapper-width: 800px;
 
 /*============================================================================
   Content Area
@@ -27,7 +27,7 @@ $wrapper-width: 900px;
   width: $sidebar-width;
   height: 100vh;
   position: fixed;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .sidebar--logo {
@@ -62,6 +62,12 @@ $wrapper-width: 900px;
 
       li {
         margin-top: $spacing-unit/4;
+        opacity: 0.75;
+
+        &.active {
+          font-weight: bold;
+          opacity: 1;
+        }
       }
     }
   }
@@ -72,6 +78,9 @@ $wrapper-width: 900px;
 
     a {
       color: $color-white;
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 }

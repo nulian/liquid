@@ -4,6 +4,13 @@
   background: $color-blue-5;
   padding: $spacing-unit/4 $spacing-unit/2;
   border-radius: 4px;
+
+  &:hover {
+    background: $color-blue-4;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
 }
 
 .btn:visited {

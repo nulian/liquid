@@ -19,7 +19,7 @@
               <ul>
                 {% for page in site.pages %}
                   {% if page.url contains section %}
-                    <li>
+                    <li {% if page.url == current_page.url %}class="active"{% endif %}>
                       <a href="{{ page.url}}">{{ page.title }}</a>
                     </li>
                   {% endif %}
@@ -29,7 +29,6 @@
           </li>
         </ul>
         {% endfor %}
-
 
         <li><a href="https://github.com/Shopify/liquid">Source on GitHub</a></li>
       </nav>
