@@ -1,5 +1,6 @@
 
 $sidebar-width: 225px;
+$logo-height: 130px;
 $wrapper-width: 800px;
 
 /*============================================================================
@@ -27,14 +28,15 @@ $wrapper-width: 800px;
   width: $sidebar-width;
   height: 100vh;
   position: fixed;
-  overflow-y: scroll;
 }
 
 .sidebar--logo {
   font-size: $base-font-size * 2;
   font-weight: bold;
   text-align: center;
-  padding: $spacing-unit;
+  height: $logo-height;
+  line-height: $logo-height;
+  margin-bottom: 0;
   border-bottom: 1px solid $color-blue-4;
 
   a {
@@ -43,8 +45,10 @@ $wrapper-width: 800px;
 }
 
 .sidebar--nav {
-  padding: $spacing-unit/2 $spacing-unit;
+  padding: $spacing-unit $spacing-unit ($spacing-unit + $logo-height); // Add a bit more padding at the bottom for consistency.
   font-weight: bold;
+  max-height: 100%;
+  overflow-y: scroll;
 
   //First Level Links
   > ul {

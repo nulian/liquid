@@ -8,31 +8,29 @@
 
   <body>
     <div class="sidebar">
-      <h1 class="sidebar--logo"><a href="/">Liquid</a></h1>
+      <div class="sidebar--logo"><a href="/">Liquid</a></div>
       <nav class="sidebar--nav">
-
-      {% for section in sections %}
-        <ul>
-          <li>
-            <a href="/{{ section }}">{{ section | capitalize }}</a>
-            {% if current_page.url contains section %}
-              <ul>
-                {% for page in site.pages %}
-                  {% if page.url contains section %}
-                    <li {% if page.url == current_page.url %}class="active"{% endif %}>
-                      <a href="{{ page.url}}">{{ page.title }}</a>
-                    </li>
-                  {% endif %}
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </li>
-        </ul>
-        {% endfor %}
-
-        <li><a href="https://github.com/Shopify/liquid">Source on GitHub</a></li>
+          {% for section in sections %}
+            <ul>
+              <li>
+                <a href="/{{ section }}">{{ section | capitalize }}</a>
+                {% if current_page.url contains section %}
+                  <ul>
+                    {% for page in site.pages %}
+                      {% if page.url contains section %}
+                        <li {% if page.url == current_page.url %}class="active"{% endif %}>
+                          <a href="{{ page.url}}">{{ page.title }}</a>
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            </ul>
+          {% endfor %}
+          </div>
+        <!-- <li><a href="https://github.com/Shopify/liquid">Source on GitHub</a></li> -->
       </nav>
-    </div>
     <div class="content">
       <div class="wrapper">
           <h1>{{ current_page.title }}</h1>
