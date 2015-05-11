@@ -46,8 +46,11 @@ module Liquid
         @attributes.each do |key, value|
           context[key] = context[value]
         end
-
-        context_variable_name = @template_name[1..-2].split('/'.freeze).last
+        if @template_name =~ QuotedString
+          context_variable_name = @template_name[1..-2].split('/'.freeze).last
+        else
+          context_variable_name = context[@template_name]
+        end
         if variable.is_a?(Array)
           variable.collect do |var|
             context[context_variable_name] = var
